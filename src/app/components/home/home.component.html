@@ -1,24 +1,21 @@
-<p-carousel [value]="cars" [numVisible]="4" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
-    <p-header>
-        <h3>Basic</h3>
-    </p-header>
-    <ng-template let-car pTemplate="item">
-        <div class="car-details">
-            <div class="p-grid p-nogutter">
-                <div class="p-col-12">
-                    <img src="assets/icon.png" />
-                </div>
-                <div class="p-col-12 car-data">
-                    <div class="car-title">{{car.brand}}</div>
-                    <div class="car-subtitle">{{car.year}} | {{car.color}}</div>
+<app-slider>
 
-                    <div class="car-buttons">
-                        <button pButton type="button" class="ui-button-secondary pi pi-search"></button>
-                        <button pButton type="button" class="ui-button-secondary pi pi-star"></button>
-                        <button pButton type="button" class="ui-button-secondary pi pi-cog"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </ng-template>
-</p-carousel>
+    <div appSliderItem *ngFor="let game of games" style="margin: 10px;">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar [style.background-image]="game.logo" style="background-size: cover;"></div>
+                <mat-card-title>{{game.name}}</mat-card-title>
+                <mat-card-subtitle>{{game.genre}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="game.img" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    {{game.sumary}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>READ</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</app-slider>
